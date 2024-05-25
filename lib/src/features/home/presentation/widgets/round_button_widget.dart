@@ -29,7 +29,7 @@ class RoundButtonWidget extends StatelessWidget {
             minimumSize: Size(size.width * 0.21, size.width * 0.21),
             textStyle: TextStyle(
               fontSize: !isSmall ? size.width * 0.085 : size.width * 0.06,
-              fontWeight: isSmall ? FontWeight.w500 : FontWeight.w300,
+              fontWeight: isSmall ? FontWeight.w500 : FontWeight.w400,
             )),
         onPressed: () {},
         child: Text(text),
