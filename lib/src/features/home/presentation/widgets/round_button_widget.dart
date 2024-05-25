@@ -7,11 +7,13 @@ class RoundButtonWidget extends StatelessWidget {
     required this.text,
     this.backgroundColor,
     this.isSmall = false,
+    required this.onPressed,
   });
 
   final String text;
   final Color? backgroundColor;
   final bool isSmall;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class RoundButtonWidget extends StatelessWidget {
               fontSize: !isSmall ? size.width * 0.085 : size.width * 0.06,
               fontWeight: isSmall ? FontWeight.w500 : FontWeight.w400,
             )),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(text),
       ),
     );
