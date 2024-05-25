@@ -1,3 +1,4 @@
+import 'package:calculator/src/features/home/presentation/widgets/round_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -5,6 +6,14 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            RoundButtonWidget(),
+          ],
+        ),
+      ),
+    );
   }
 }
