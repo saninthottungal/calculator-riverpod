@@ -26,9 +26,9 @@ class RoundButtonWidget extends StatelessWidget {
             foregroundColor: backgroundColor == AppColors.white50
                 ? Colors.black
                 : Colors.white,
-            minimumSize: Size(size.width * 0.24, size.width * 0.24),
+            minimumSize: Size(size.width * 0.21, size.width * 0.21),
             textStyle: TextStyle(
-              fontSize: !isSmall ? size.width * 0.1 : size.width * 0.06,
+              fontSize: !isSmall ? size.width * 0.085 : size.width * 0.06,
               fontWeight: isSmall ? FontWeight.w500 : FontWeight.w300,
             )),
         onPressed: () {},
