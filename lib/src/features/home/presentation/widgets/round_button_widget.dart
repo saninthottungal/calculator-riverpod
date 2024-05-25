@@ -2,23 +2,37 @@ import 'package:calculator/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundButtonWidget extends StatelessWidget {
-  const RoundButtonWidget({super.key});
+  const RoundButtonWidget({
+    super.key,
+    required this.text,
+    this.backgroundColor,
+    this.isSmall = false,
+  });
+
+  final String text;
+  final Color? backgroundColor;
+  final bool isSmall;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
             elevation: 0,
-            backgroundColor: AppColors.orange,
-            foregroundColor: Colors.white,
-            minimumSize: Size(size.width * 0.2, size.width * 0.2),
-            textStyle: TextStyle(fontSize: size.width * 0.08)),
+            backgroundColor: backgroundColor ?? AppColors.black50,
+            foregroundColor: backgroundColor == AppColors.white50
+                ? Colors.black
+                : Colors.white,
+            minimumSize: Size(size.width * 0.24, size.width * 0.24),
+            textStyle: TextStyle(
+              fontSize: !isSmall ? size.width * 0.1 : size.width * 0.06,
+              fontWeight: isSmall ? FontWeight.w500 : FontWeight.w300,
+            )),
         onPressed: () {},
-        child: const Text("+"),
+        child: Text(text),
       ),
     );
   }

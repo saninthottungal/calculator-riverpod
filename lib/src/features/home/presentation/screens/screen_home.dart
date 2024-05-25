@@ -1,4 +1,5 @@
 import 'package:calculator/src/features/home/presentation/widgets/round_button_widget.dart';
+import 'package:calculator/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -9,8 +10,81 @@ class ScreenHome extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            RoundButtonWidget(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RoundButtonWidget(
+                  text: 'C',
+                  backgroundColor: AppColors.white50,
+                  isSmall: true,
+                ),
+                RoundButtonWidget(
+                  text: 'DEL',
+                  isSmall: true,
+                  backgroundColor: AppColors.white50,
+                ),
+                RoundButtonWidget(
+                  text: '%',
+                  backgroundColor: AppColors.white50,
+                ),
+                RoundButtonWidget(
+                  text: '÷',
+                  backgroundColor: AppColors.orange,
+                  isSmall: true,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RoundButtonWidget(text: '7'),
+                RoundButtonWidget(text: '8'),
+                RoundButtonWidget(text: '9'),
+                RoundButtonWidget(
+                  text: 'x',
+                  backgroundColor: AppColors.orange,
+                  isSmall: true,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RoundButtonWidget(text: '4'),
+                RoundButtonWidget(text: '5'),
+                RoundButtonWidget(text: '6'),
+                RoundButtonWidget(
+                  text: '-',
+                  backgroundColor: AppColors.orange,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RoundButtonWidget(text: '1'),
+                RoundButtonWidget(text: '2'),
+                RoundButtonWidget(text: '3'),
+                RoundButtonWidget(
+                  text: '+',
+                  backgroundColor: AppColors.orange,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RoundButtonWidget(text: '0'),
+                RoundButtonWidget(text: '0'),
+                RoundButtonWidget(text: '.'),
+                RoundButtonWidget(
+                  text: '=',
+                  backgroundColor: AppColors.orange,
+                ),
+              ],
+            ),
           ],
         ),
       ),
