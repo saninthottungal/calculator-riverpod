@@ -14,11 +14,11 @@ class Calnum {
   static const clear = 'C';
   static const delete = 'DEL';
   static const percent = '%';
-  static const div = '÷';
+  static const div = '/';
   static const n7 = '7';
   static const n8 = '8';
   static const n9 = '9';
-  static const mult = 'x';
+  static const mult = '*';
   static const n4 = '4';
   static const n5 = '5';
   static const n6 = '6';
