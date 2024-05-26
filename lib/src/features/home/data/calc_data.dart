@@ -28,7 +28,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.percent;
-        state = state + Calnum.percent;
+        state += Calnum.percent;
         break;
 
       case Calnum.div:
@@ -37,7 +37,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.div;
-        state = state + Calnum.div;
+        state += Calnum.div;
         break;
       case Calnum.mult:
         if (operator == Calc.mult) return;
@@ -45,7 +45,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.mult;
-        state = state + Calnum.mult;
+        state += Calnum.mult;
         break;
       case Calnum.sub:
         if (operator == Calc.sub) return;
@@ -53,7 +53,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.sub;
-        state = state + Calnum.sub;
+        state += Calnum.sub;
         break;
       case Calnum.add:
         if (operator == Calc.add) return;
@@ -61,14 +61,14 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.add;
-        state = state + Calnum.add;
+        state += Calnum.add;
         break;
       case Calnum.equal:
         equate();
         break;
       default:
         ref.read(operatorProvider.notifier).state = Calc.none;
-        state == Calnum.n0 ? state = value : state = state + value;
+        state == Calnum.n0 ? state = value : state += value;
     }
   }
 
