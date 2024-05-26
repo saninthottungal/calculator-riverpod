@@ -4,4 +4,5 @@ enum Calc {
   div,
   mult,
   sub,
+  percent,
 }

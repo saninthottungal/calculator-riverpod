@@ -23,15 +23,21 @@ class CalcData extends Notifier<String> {
             : state = state.substring(0, state.length - 1);
         break;
       case Calnum.percent:
-        percent();
+        if (operator == Calc.percent) return;
+        if (operator != Calc.none) {
+          state = state.substring(0, state.length - 1);
+        }
+        ref.read(operatorProvider.notifier).state = Calc.percent;
+        state = state + Calnum.percent;
         break;
+
       case Calnum.div:
         if (operator == Calc.div) return;
         if (operator != Calc.none) {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.div;
-        div();
+        state = state + Calnum.div;
         break;
       case Calnum.mult:
         if (operator == Calc.mult) return;
@@ -39,7 +45,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.mult;
-        mult();
+        state = state + Calnum.mult;
         break;
       case Calnum.sub:
         if (operator == Calc.sub) return;
@@ -47,7 +53,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.sub;
-        sub();
+        state = state + Calnum.sub;
         break;
       case Calnum.add:
         if (operator == Calc.add) return;
@@ -55,7 +61,7 @@ class CalcData extends Notifier<String> {
           state = state.substring(0, state.length - 1);
         }
         ref.read(operatorProvider.notifier).state = Calc.add;
-        addf();
+        state = state + Calnum.add;
         break;
       case Calnum.equal:
         equate();
@@ -66,23 +72,8 @@ class CalcData extends Notifier<String> {
     }
   }
 
-  void div() {
-    state = state + Calnum.div;
-  }
-
-  void mult() {
-    state = state + Calnum.mult;
-  }
-
-  void sub() {
-    state = state + Calnum.sub;
-  }
-
-  void addf() {
-    state = state + Calnum.add;
-  }
-
   void equate() {
+    if (ref.read(operatorProvider) != Calc.none) return;
     final value = state.interpret();
     num parsedValue;
     if (value % 1 != 0) {

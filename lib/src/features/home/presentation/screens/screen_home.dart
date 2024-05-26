@@ -21,30 +21,17 @@ class ScreenHome extends ConsumerWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const Text(
-                      "42*42",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 0,
-                      ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  reverse: true,
+                  child: Text(
+                    ref.watch(calcProvider),
+                    style: const TextStyle(
+                      fontSize: 75,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: -5,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      reverse: true,
-                      child: Text(
-                        ref.watch(calcProvider),
-                        style: const TextStyle(
-                          fontSize: 75,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: -5,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               const Row(
