@@ -3,6 +3,7 @@ import 'package:calculator/src/features/home/presentation/widgets/zero_button_wi
 import 'package:calculator/src/features/home/providers/calc_provider.dart';
 import 'package:calculator/src/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ScreenHome extends ConsumerWidget {
@@ -31,12 +32,16 @@ class ScreenHome extends ConsumerWidget {
                         letterSpacing: 0,
                       ),
                     ),
-                    Text(
-                      ref.watch(calcProvider),
-                      style: const TextStyle(
-                        fontSize: 75,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: -5,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      reverse: true,
+                      child: Text(
+                        ref.watch(calcProvider),
+                        style: const TextStyle(
+                          fontSize: 75,
+                          fontWeight: FontWeight.w300,
+                          letterSpacing: -5,
+                        ),
                       ),
                     ),
                   ],
@@ -46,21 +51,21 @@ class ScreenHome extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RoundButtonWidget(
-                    text: 'C',
+                    text: Calnum.clear,
                     backgroundColor: AppColors.white50,
                     isSmall: true,
                   ),
                   RoundButtonWidget(
-                    text: 'DEL',
+                    text: Calnum.delete,
                     isSmall: true,
                     backgroundColor: AppColors.white50,
                   ),
                   RoundButtonWidget(
-                    text: '%',
+                    text: Calnum.percent,
                     backgroundColor: AppColors.white50,
                   ),
                   RoundButtonWidget(
-                    text: '÷',
+                    text: Calnum.div,
                     backgroundColor: AppColors.orange,
                     isSmall: true,
                   ),
@@ -70,16 +75,16 @@ class ScreenHome extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RoundButtonWidget(
-                    text: '7',
+                    text: Calnum.n7,
                   ),
                   RoundButtonWidget(
-                    text: '8',
+                    text: Calnum.n8,
                   ),
                   RoundButtonWidget(
-                    text: '9',
+                    text: Calnum.n9,
                   ),
                   RoundButtonWidget(
-                    text: 'x',
+                    text: Calnum.mult,
                     backgroundColor: AppColors.orange,
                     isSmall: true,
                   ),
@@ -89,16 +94,16 @@ class ScreenHome extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RoundButtonWidget(
-                    text: '4',
+                    text: Calnum.n4,
                   ),
                   RoundButtonWidget(
-                    text: '5',
+                    text: Calnum.n5,
                   ),
                   RoundButtonWidget(
-                    text: '6',
+                    text: Calnum.n6,
                   ),
                   RoundButtonWidget(
-                    text: '-',
+                    text: Calnum.sub,
                     backgroundColor: AppColors.orange,
                   ),
                 ],
@@ -107,16 +112,16 @@ class ScreenHome extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RoundButtonWidget(
-                    text: '1',
+                    text: Calnum.n1,
                   ),
                   RoundButtonWidget(
-                    text: '2',
+                    text: Calnum.n2,
                   ),
                   RoundButtonWidget(
-                    text: '3',
+                    text: Calnum.n3,
                   ),
                   RoundButtonWidget(
-                    text: '+',
+                    text: Calnum.add,
                     backgroundColor: AppColors.orange,
                   ),
                 ],
@@ -126,10 +131,10 @@ class ScreenHome extends ConsumerWidget {
                 children: [
                   ZeroButtonWidget(),
                   RoundButtonWidget(
-                    text: '.',
+                    text: Calnum.dot,
                   ),
                   RoundButtonWidget(
-                    text: '=',
+                    text: Calnum.equal,
                     backgroundColor: AppColors.orange,
                   ),
                 ],

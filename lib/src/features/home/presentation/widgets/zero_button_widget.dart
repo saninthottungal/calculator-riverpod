@@ -1,17 +1,19 @@
+import 'package:calculator/src/features/home/providers/calc_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/constants.dart';
 
-class ZeroButtonWidget extends StatelessWidget {
-  const ZeroButtonWidget({
-    super.key,
-  });
+class ZeroButtonWidget extends ConsumerWidget {
+  const ZeroButtonWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        ref.read(calcProvider.notifier).compute(Calnum.n0);
+      },
       style: ElevatedButton.styleFrom(
         minimumSize: Size(size.width * 0.45, size.width * 0.2),
         backgroundColor: AppColors.black50,
@@ -24,7 +26,7 @@ class ZeroButtonWidget extends StatelessWidget {
           letterSpacing: 20,
         ),
       ),
-      child: const Text("0"),
+      child: const Text(Calnum.n0),
     );
   }
 }

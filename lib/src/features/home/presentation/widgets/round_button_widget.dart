@@ -1,7 +1,9 @@
+import 'package:calculator/src/features/home/providers/calc_provider.dart';
 import 'package:calculator/src/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RoundButtonWidget extends StatelessWidget {
+class RoundButtonWidget extends ConsumerWidget {
   const RoundButtonWidget({
     super.key,
     required this.text,
@@ -14,7 +16,7 @@ class RoundButtonWidget extends StatelessWidget {
   final bool isSmall;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -31,7 +33,9 @@ class RoundButtonWidget extends StatelessWidget {
               fontSize: !isSmall ? size.width * 0.085 : size.width * 0.06,
               fontWeight: isSmall ? FontWeight.w500 : FontWeight.w400,
             )),
-        onPressed: () {},
+        onPressed: () {
+          ref.read(calcProvider.notifier).compute(text);
+        },
         child: Text(text),
       ),
     );
