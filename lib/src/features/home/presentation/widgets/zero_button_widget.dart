@@ -5,16 +5,13 @@ import '../../../../utils/constants.dart';
 class ZeroButtonWidget extends StatelessWidget {
   const ZeroButtonWidget({
     super.key,
-    required this.onPressed,
   });
-
-  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: () {},
       style: ElevatedButton.styleFrom(
         minimumSize: Size(size.width * 0.45, size.width * 0.2),
         backgroundColor: AppColors.black50,
